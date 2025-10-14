@@ -3,7 +3,9 @@ pipeline {
 }
 
 stages {
-    step('Checkout Code') {
-        sh 'git clone https://github.com/Saikiran121/ecommerce-microservices.git'
+    stage('Checkout Code') {
+        steps {
+            sh 'git clone https://github.com/Saikiran121/ecommerce-microservices.git'
+        }
     }
 }
