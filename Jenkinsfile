@@ -20,6 +20,14 @@ pipeline {
                 sh 'git clone https://github.com/Saikiran121/ecommerce-microservices.git'
             }
         }
+
+        stage('Build Docker Image') {
+            steps {
+                dir('ecommerce-microservices/order-service') {
+                    sh 'docker buil -t saikiran8050/order-service:0.15 .'
+                }
+            }
+        }
     }
 }
 
