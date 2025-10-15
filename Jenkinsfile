@@ -9,6 +9,12 @@ pipeline {
             }
         }
 
+        stage("Clean Workspace") {
+            steps {
+                cleanWs()
+            }
+        }
+
         stage('Checkout Code') {
             steps {
                 sh 'git clone https://github.com/Saikiran121/ecommerce-microservices.git'
