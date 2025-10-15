@@ -1,8 +1,5 @@
 pipeline {
-    agent docker {
-        image 'maven:3.9-eclipse-temurin-21'
-        args '-v /var/run/docker.sock:/var/run/docker.sock'
-    }
+    agent any 
 
     stages {
 
@@ -34,6 +31,12 @@ pipeline {
         }
 
         stage('Build jar') {
+            agent {
+                docker {
+                    image 'maven:3.9-eclipse-temurin-21'
+                    args '-v /var/run/docker.sock:/var/run/docker.sock'
+                }
+            }
             steps {
                 dir('ecommerce-microservices/order-service') {
                     sh 'mvn -B -DskipTests clean package'
