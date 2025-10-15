@@ -21,6 +21,15 @@ pipeline {
             }
         }
 
+        stage('Show Java and Maven Version') {
+            steps {
+                sh '''
+                    java --version
+                    mvn --version
+                '''
+            }
+        }
+
         stage('Build jar') {
             steps {
                 dir('ecommerce-microservices/order-service') {
