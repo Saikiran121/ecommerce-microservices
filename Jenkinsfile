@@ -24,7 +24,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 dir('ecommerce-microservices/order-service') {
-                    sh 'docker buil -t saikiran8050/order-service:0.15 .'
+                    sh 'docker build -t saikiran8050/order-service:0.15 .'
                 }
             }
         }
