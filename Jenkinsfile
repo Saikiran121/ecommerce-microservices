@@ -21,6 +21,14 @@ pipeline {
             }
         }
 
+        stage('Build jar') {
+            steps {
+                dir('ecommerce-microservices/order-service') {
+                    sh 'mvn -B -DskipTests clean package'
+                }
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 dir('ecommerce-microservices/order-service') {
